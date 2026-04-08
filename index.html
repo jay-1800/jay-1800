@@ -54,6 +54,16 @@ input, textarea {
   margin: 5px 0;
 }
 </style>
+  .reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 </head>
 
 <body>
@@ -75,13 +85,13 @@ input, textarea {
 
 <div class="grid">
 <h2>🌟 Culture of the Day</h2>
-<div class="card">
+<div class="card reveal">
   <h3>Himba Tribe</h3>
   <p>Women use red clay for beauty and skin protection.</p>
 </div>
   <h2>🔥 Featured Cultures</h2>
 <a href="maasai.html" style="text-decoration:none; color:white;">
- <div class="card" style="background:url('https://raw.githubusercontent.com/jay-1800/jay-1800/refs/heads/main/Maasai-People-735x4001.jpg') center/cover; height:250px; display:flex; align-items:flex-end; border-radius:10px; overflow:hidden;">
+ <div class="card reveal" style="background:url('https://raw.githubusercontent.com/jay-1800/jay-1800/refs/heads/main/Maasai-People-735x4001.jpg') center/cover; height:250px; display:flex; align-items:flex-end; border-radius:10px; overflow:hidden;">
 <div style="background:linear-gradient(transparent, rgba(0,0,0,0.8)); padding:10px;">
     <h3>Maasai Tribe</h3>
     <p>Known for colorful beads and warrior traditions.</p>
@@ -89,14 +99,14 @@ input, textarea {
    </a>
 </div>
 
-  <div class="card" style="background:url('https://raw.githubusercontent.com/jay-1800/jay-1800/refs/heads/main/The-indigenous-Himba-Tribe.jpg') center/cover; height:250px; display:flex; align-items:flex-end; border-radius:10px; overflow:hidden;">
+  <div class="card reveal" style="background:url('https://raw.githubusercontent.com/jay-1800/jay-1800/refs/heads/main/The-indigenous-Himba-Tribe.jpg') center/cover; height:250px; display:flex; align-items:flex-end; border-radius:10px; overflow:hidden;">
      <div style="background:linear-gradient(transparent, rgba(0,0,0,0.8)); padding:10px;">
     <h3>Himba Tribe</h3>
     <p>Famous for red clay hair and unique lifestyle.</p>
         </div>
   </div>
 
-  <div class="card" style="background:url('https://raw.githubusercontent.com/jay-1800/jay-1800/refs/heads/main/379276ed40eea1a511dd758b373a4203.jpg') center/cover; height:250px; display:flex; align-items:flex-end; border-radius:10px; overflow:hidden;">
+  <div class="card reveal" style="background:url('https://raw.githubusercontent.com/jay-1800/jay-1800/refs/heads/main/379276ed40eea1a511dd758b373a4203.jpg') center/cover; height:250px; display:flex; align-items:flex-end; border-radius:10px; overflow:hidden;">
    <div style="background:linear-gradient(transparent, rgba(0,0,0,0.8)); padding:10px;">
     <h3>Zulu Culture</h3>
     <p>Rich dance traditions and strong heritage.</p>
@@ -110,6 +120,21 @@ input, textarea {
   <button onclick="alert('Submitted!')">Submit</button>
 
 </div>
+  <script>
+window.addEventListener("scroll", function() {
+  let reveals = document.querySelectorAll(".reveal");
+
+  for (let i = 0; i < reveals.length; i++) {
+    let windowHeight = window.innerHeight;
+    let elementTop = reveals[i].getBoundingClientRect().top;
+    let elementVisible = 100;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    }
+  }
+});
+</script>
 
 </body>
 </html>
